@@ -6,6 +6,8 @@ gem 'rails', '4.0.3'
 
 gem 'coffee-rails'
 gem 'haml-rails'
+gem 'ember-rails'
+gem 'ember-source'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'sass-rails'
