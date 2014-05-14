@@ -8,3 +8,6 @@
 #= require_tree ./routes
 #= require ./router
 #= require_self
+
+# for more details see: http:#emberjs.com/guides/application/
+window.EmberTodo = Ember.Application.create()
