@@ -5,18 +5,12 @@
       %input#new-todo{ placeholder: 'What needs to be done?', type: 'text' }/
     %section#main
       %ul#todo-list
-        %li.completed
-          %input.toggle{ type: 'checkbox' }/
-          %label= 'Learn Ember.js'
-          %button.destroy
+        {{#each}}
         %li
-          %input.toggle{ type: 'checkbox' }/
-          %label= '...'
+          %input.toggle{type: "checkbox"}/
+          %label {{title}}
           %button.destroy
-        %li
-          %input.toggle{ type: 'checkbox' }/
-          %label= 'Profit!'
-          %button.destroy
+          {{/each}}
       %input#toggle-all{ type: 'checkbox' }/
     %footer#footer
       %span#todo-coun= '2 todos left'

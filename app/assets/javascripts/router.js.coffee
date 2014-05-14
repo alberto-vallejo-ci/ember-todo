@@ -3,3 +3,8 @@
 EmberTodo.Router.map ()->
   @resource "todos", { path: "/" }
 
+EmberTodo.TodosRoute = Ember.Route.extend(
+  model: ->
+    @store.find "todo"
+)
+
