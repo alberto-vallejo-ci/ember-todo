@@ -7,10 +7,10 @@
       %ul#todo-list
         {{#each}}
         %li
-          %input.toggle{type: "checkbox"}/
+          %input.toggle{ type: 'checkbox' }/
           %label {{title}}
           %button.destroy
-          {{/each}}
+        {{/each}}
       %input#toggle-all{ type: 'checkbox' }/
     %footer#footer
       %span#todo-coun= '2 todos left'
