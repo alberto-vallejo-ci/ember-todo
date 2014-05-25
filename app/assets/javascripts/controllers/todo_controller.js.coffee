@@ -4,6 +4,22 @@ EmberTodo.TodoController = Ember.ObjectController.extend(
       @set "isEditing", true
       return
 
+    acceptChanges: ->
+      @set "isEditing", false
+      @get("model").save()
+      if Ember.isEmpty @get('model.title')
+        @send('removeTodo')
+      else
+        @get('model').save()
+
+      return
+
+    removeTodo: ->
+      todo = @get("model")
+      todo.deleteRecord()
+      todo.save()
+      return
+
   isEditing: false
 
   isCompleted: ((key, value) ->

@@ -7,7 +7,7 @@ section#todoapp
       = each itemController='todo'
         li{bind-attr class='isCompleted:completed isEditing:editing'}
           = if isEditing
-            input.edit
+            = edit-todo class='edit' value=title focus-out='acceptChanges' insert-newline='acceptChanges'
           = else
             = input type='checkbox' checked=isCompleted class='toggle'
             label doubleClick='editTodo'
