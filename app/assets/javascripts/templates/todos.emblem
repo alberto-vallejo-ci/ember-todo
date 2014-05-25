@@ -1,12 +1,12 @@
 section#todoapp
   header#header
     h1 todos
-    = input#new-todo placeholder='What needs to be done?' type='text' value=newTitle action='createTodo'
+    = input id='new-todo' placeholder='What needs to be done?' type='text' value=newTitle action='createTodo'
   section#main
     ul#todo-list
-      = each
+      = each itemController='todo'
         li{bind-attr class="isCompleted:completed"}
-          input.toggle type='checkbox'
+          = input type='checkbox' checked=isCompleted class='toggle'
           label = title
           button.destroy
     input#toggle-all type='checkbox'
