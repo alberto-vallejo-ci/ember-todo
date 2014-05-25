@@ -12,7 +12,7 @@ section#todoapp
             = input type='checkbox' checked=isCompleted class='toggle'
             label doubleClick='editTodo'
               = title
-            button.destroy
+            button.destroy{ action 'removeTodo' }
     input#toggle-all type='checkbox'
   footer#footer
     span#todo-count
