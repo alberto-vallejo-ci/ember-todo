@@ -5,10 +5,14 @@ section#todoapp
   section#main
     ul#todo-list
       = each itemController='todo'
-        li{bind-attr class="isCompleted:completed"}
-          = input type='checkbox' checked=isCompleted class='toggle'
-          label = title
-          button.destroy
+        li{bind-attr class='isCompleted:completed isEditing:editing'}
+          = if isEditing
+            input.edit
+          = else
+            = input type='checkbox' checked=isCompleted class='toggle'
+            label doubleClick='editTodo'
+              = title
+            button.destroy
     input#toggle-all type='checkbox'
   footer#footer
     span#todo-count
