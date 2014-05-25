@@ -1,19 +1,30 @@
-EmberTodo.TodosController = Ember.ArrayController.extend(actions:
-  createTodo: ->
-    # Get the todo title set by the "New Todo" text field
-    title = @get("newTitle")
-    return  unless title.trim()
+EmberTodo.TodosController = Ember.ArrayController.extend(
+  actions:
+    createTodo: ->
 
-    # Create the new Todo model
-    todo = @store.createRecord("todo",
-      title: title
-      isCompleted: false
-    )
+      # Get the todo title set by the "New Todo" text field
+      title = @get('newTitle')
+      return  unless title.trim()
 
-    # Clear the "New Todo" text field
-    @set "newTitle", ""
+      # Create the new Todo model
+      todo = @store.createRecord('todo',
+        title: title
+        isCompleted: false
+      )
 
-    # Save the new model
-    todo.save()
-    return
+      # Clear the "New Todo" text field
+      @set 'newTitle', ''
+
+      # Save the new model
+      todo.save()
+      return
+
+  remaining: (->
+    @filterProperty('isCompleted', false).get 'length'
+  ).property('@each.isCompleted')
+
+  inflection: (->
+    remaining = @get('remaining')
+    if remaining is 1 then 'item' else 'items'
+  ).property('remaining')
 )

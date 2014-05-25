@@ -11,7 +11,9 @@ section#todoapp
           button.destroy
     input#toggle-all type='checkbox'
   footer#footer
-    span#todo-count 2 todos left
+    span#todo-count
+      strong {{remaining}}
+      '  {{inflection}} left
     ul#filters
       li
         a.selected href='all' All
