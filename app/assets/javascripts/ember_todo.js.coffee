@@ -9,4 +9,10 @@
 #= require ./router
 #= require_self
 
-EmberTodo.ApplicationAdapter = DS.FixtureAdapter.extend()
+#EmberTodo.ApplicationAdapter = DS.FixtureAdapter.extend()
+
+EmberTodo.ApplicationSerializer = DS.LSSerializer.extend()
+
+EmberTodo.ApplicationAdapter = DS.LSAdapter.extend({
+  namespace: 'ember-todos-emberjs'
+})
