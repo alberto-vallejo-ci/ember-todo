@@ -1,9 +1,9 @@
-# For more information see: http://emberjs.com/guides/routing/
-
 EmberTodo.Router.map ->
-  @resource "todos",
+  @resource 'todos',
     path: "/"
   , ->
+    @route 'active'
+    return
 
   return
 
@@ -11,7 +11,18 @@ EmberTodo.TodosRoute = Ember.Route.extend(
   model: ->
     @store.find 'todo'
 )
+EmberTodo.TodosIndexRoute = Ember.Route.extend(
+  model: ->
+    @modelFor 'todos'
+)
+EmberTodo.TodosActiveRoute = Ember.Route.extend(
+  model: ->
+    @store.filter 'todo', (todo) ->
+      !todo.get('isCompleted')
 
-EmberTodo.TodosIndexRoute = Ember.Route.extend(model: ->
-  @modelFor "todos"
+  renderTemplate: (controller) ->
+    @render 'todos/index',
+      controller: controller
+
+    return
 )

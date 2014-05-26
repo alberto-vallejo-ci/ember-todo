@@ -11,9 +11,9 @@ section#todoapp
       '  {{inflection}} left
     ul#filters
       li
-        a.selected href='all' All
+        a href='all' All
       li
-        a href='active' Active
+        = link-to 'todos.active' activeClass='selected' | Active
       li
         a href='completed' Completed
     button#clear-completed Clear completed (1)
