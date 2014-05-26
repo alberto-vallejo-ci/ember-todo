@@ -11,10 +11,14 @@ section#todoapp
       '  {{inflection}} left
     ul#filters
       li
-         = link-to 'todos.index' activeClass='selected' | All
+        = link-to 'todos.index' activeClass='selected' | All
       li
         = link-to 'todos.active' activeClass='selected' | Active
       li
         = link-to 'todos.completed' activeClass='selected' | Completed
-    button#clear-completed Clear completed (1)
+    = if hasCompleted
+      button{ action 'clearCompleted' } id='clear-completed'
+        'Clear completed (
+        = completed
+        '  )
 footer#info Double-click to edit a todo
