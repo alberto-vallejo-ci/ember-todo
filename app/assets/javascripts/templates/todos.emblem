@@ -11,7 +11,7 @@ section#todoapp
       '  {{inflection}} left
     ul#filters
       li
-        a href='all' All
+         = link-to 'todos.index' activeClass='selected' | All
       li
         = link-to 'todos.active' activeClass='selected' | Active
       li
