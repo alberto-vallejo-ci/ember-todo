@@ -15,6 +15,6 @@ section#todoapp
       li
         = link-to 'todos.active' activeClass='selected' | Active
       li
-        a href='completed' Completed
+        = link-to 'todos.completed' activeClass='selected' | Completed
     button#clear-completed Clear completed (1)
 footer#info Double-click to edit a todo
