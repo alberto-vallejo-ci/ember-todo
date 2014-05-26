@@ -4,7 +4,7 @@ section#todoapp
     = input id='new-todo' placeholder='What needs to be done?' type='text' value=newTitle action='createTodo'
   section#main
     = outlet
-    input#toggle-all type='checkbox'
+    = input type='checkbox' id='toggle-all' checked=allAreDone
   footer#footer
     span#todo-count
       strong {{remaining}}
