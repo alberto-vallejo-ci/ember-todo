@@ -3,16 +3,7 @@ section#todoapp
     h1 todos
     = input id='new-todo' placeholder='What needs to be done?' type='text' value=newTitle action='createTodo'
   section#main
-    ul#todo-list
-      = each itemController='todo'
-        li{bind-attr class='isCompleted:completed isEditing:editing'}
-          = if isEditing
-            = edit-todo class='edit' value=title focus-out='acceptChanges' insert-newline='acceptChanges'
-          = else
-            = input type='checkbox' checked=isCompleted class='toggle'
-            label doubleClick='editTodo'
-              = title
-            button.destroy{ action 'removeTodo' }
+    = outlet
     input#toggle-all type='checkbox'
   footer#footer
     span#todo-count
