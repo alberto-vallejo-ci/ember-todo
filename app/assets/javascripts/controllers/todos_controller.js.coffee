@@ -42,6 +42,11 @@ EmberTodo.TodosController = Ember.ArrayController.extend(
   ).property('@each.isCompleted')
 
   allAreDone: ( (key, value) ->
-    !!@get('length') && @isEvery('isCompleted')
+    if value is undefined
+      !!@get('length') && @everyProperty('isCompleted', true)
+    else
+      @setEach('isCompleted', value)
+      @invoke('save')
+      value
   ).property('@each.isCompleted')
 )
